@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+📌 Product Administrator — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This document describes the frontend of the Product Administrator PERN application, including its features, tech stack, project structure, and setup instructions.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive UI styled with Tailwind CSS
+- Client-side routing using React Router DOM
+- Modern data handling with React Router Data APIs (loaders & actions)
+- API communication via Axios
+- Type-safe data parsing and validation using Zod
+- Clean separation of concerns between views, routes, and data logic
 
-## React Compiler
+🌐 Live Demo
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+The frontend is deployed and available at:
 
-## Expanding the ESLint configuration
+👉 https://admin-product-frontend-ten.vercel.app/
+⚠️ Note: The first load may take a few seconds because the backend is hosted on Render free tier, which can spin down when inactive.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🛠 Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router DOM
+- Axios
+- Zod
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+📂 Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+frontend/
+├── public/
+├── src/
+│ ├── actions/
+│ ├── assets/
+│ ├── components/
+│ ├── layouts/
+│ ├── loaders/
+│ ├── services/
+│ ├── types/
+│ ├── utils/
+│ ├── views/
+│ ├── index.css
+│ ├── main.tsx
+│ └── router.tsx
+├── .env.local
+├── index.html
+├── package.json
+├── README.md
+└── vite.config.ts
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+▶️ Installation & Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Install dependencies - npm install
+Development server - npm run dev
+Build for production - npm run build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🔗 Backend Integration
+
+The frontend consumes the REST API exposed by the backend service.
+Ensure the backend is running and properly configured before starting the frontend.
+API requests are handled using Axios, with schema validation performed using Zod before data is rendered or submitted.
+
+🧭 Routing & Data Handling
+
+Routing and data mutations are managed using React Router Data APIs:
+Loaders for data fetching
+Actions for form submissions and mutations
+This approach keeps data logic close to routes and reduces unnecessary state management.
