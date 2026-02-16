@@ -11,7 +11,7 @@ const Layout = () => {
         </div>
       </header>
 
-      <main className="mt-10 mx-auto w-[80%] p-10 bg-white shadow">
+      <main className="mt-10 mx-auto w-[90%] md:w-[80%] p-10 mb-5 bg-white shadow rounded-2xl md:rounded-none">
         <Outlet />
       </main>
     </>

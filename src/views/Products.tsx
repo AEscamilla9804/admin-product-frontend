@@ -12,7 +12,7 @@ const Products = () => {
 
             <Link
                 to="products/new"
-                className="px-3 py-2 rounded bg-indigo-700 text-sm font-bold text-white shadow-sm hover:bg-indigo-600"
+                className="px-3 py-2 rounded-md bg-indigo-700 text-sm font-bold text-white shadow-sm hover:bg-indigo-600"
             >
                 Add Product
             </Link>
@@ -20,8 +20,8 @@ const Products = () => {
 
         { products && 
           <div className='overflow-x-auto'>
-            <table className="w-full mt-5 table-auto">
-              <thead className="bg-slate-800 text-white">
+            <table className="w-full mt-5 table md:table-auto">
+              <thead className="hidden sm:table-header-group bg-slate-800 text-white">
                   <tr>
                       <th className="p-2">Product</th>
                       <th className="p-2">Price</th>
